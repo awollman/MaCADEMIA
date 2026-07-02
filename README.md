@@ -6,6 +6,11 @@ Useful for analysing localisation microscopy, step-wise photobleaching  , STORM,
 
 See [website](https://awollman.github.io/single-molecule-tools/) for more info or jump to the relevant folder.
 
+### LoGTracker
+
+An alternative tracking and stoichiometry pipeline, using LoG spot detection, LAP-based
+trajectory linking and intensity-extrapolation stoichiometry. See the
+[LoGTracker readme](LoGTracker/README.md) for details.
 
 ### Guide to setting up github source control in matlab
 

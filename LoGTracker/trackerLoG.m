@@ -1,5 +1,5 @@
-function [Spots, frame_average, p, meta_data, image_data] = tracker_upgraded(fileName, p)
-% TRACKER_UPGRADED performs spot tracking using LoG detection and LAP linking.
+function [Spots, frame_average, p, meta_data, image_data] = trackerLoG(fileName, p)
+% TRACKERLOG performs spot tracking using LoG detection and LAP linking.
 
     %% SET DEFAULT PARAMETERS
     if ~exist('p','var') || isempty(p), p = struct(); end
@@ -173,23 +173,10 @@ function result = findSpotsLoG_internal(frame, disk_radius, show_output)
     result(:, [1:b, end-b+1:end]) = 0;
 end
 
-% function result = findSpotsOriginal_internal(frame, disk_radius, gaussian, show_output)
-%     % Morphological spot detection
-%     f = mat2gray(double(frame));
-%     if gaussian == 1, f = imfilter(f, fspecial('gaussian', 3)); end
-% 
-%     signal = imtophat(f, strel('disk', disk_radius));
-%     [histy, histx] = imhist(signal(signal > 0));
-%     [~, maxIdx] = max(histy);
-% 
-%     bw = imbinarize(imfilter(signal, fspecial('gaussian')), histx(maxIdx));
-%     result = bwulterode(bwmorph(imopen(bw, strel('disk', 1)), 'fill', 1));
-% end
-
 function result = findSpotsOriginal_internal(frame, disk_radius, gaussian, show_output)
-    % COMBINED DETECTION: Merges Background Masking (findSpots2) and Histogram (findSpots3).
-    result1 = findSpots2(frame, 2, disk_radius, gaussian, 0);
-    result2 = findSpots3(frame, 2, disk_radius, gaussian, 0);
+    % COMBINED DETECTION: Merges Background Masking (findSpots2LoG) and Histogram (findSpots3LoG).
+    result1 = findSpots2LoG(frame, 2, disk_radius, gaussian, 0);
+    result2 = findSpots3LoG(frame, 2, disk_radius, gaussian, 0);
     result_combined = result1 + result2;
     % Ensure binary output (where 1 means found in either or both methods)
     result_combined(result_combined > 1) = 1;

@@ -1,4 +1,4 @@
-% TRACKER_PARAMS initializes parameters for tracker_upgraded.
+% CREATEPLOG initializes parameters for trackerLoG.
 
 %% Image Loading and Frame Selection
 p.useBioFormats = 1;         % Use BioFormats for non-TIFF compatibility
