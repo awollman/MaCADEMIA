@@ -1,4 +1,4 @@
-# Single molecule tools
+# MaCADEMIA
 
 A series of Matlab functions and scripts for tracking and quantification of spots in images, deconvolution, segmentation and simulation.
 
