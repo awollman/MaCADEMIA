@@ -1,4 +1,4 @@
-# Single molecule tools
+# MaCADEMIA
 
 A series of Matlab functions and scripts for [tracking](tracking.md) and quantification of spots in images, [Copy Number deconvolution](deconvolution.md), [segmentation](segmentation.md) and [simulation](simulation.md).
 
